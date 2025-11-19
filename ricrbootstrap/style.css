@@ -1,0 +1,33 @@
+#btn{
+        border-bottom:4px solid lightblue;
+        border-right: 4px solid lightblue;;
+        background:rgb(19, 83, 135);
+    }
+#formFiled span input{
+width: 500px !important;
+height: 50px !important;
+}
+#formid  input{
+    width: 700px !important;
+    height: 50px !important;
+}
+#formDr input{
+    width: 380px !important;
+    height:  50px !important;
+}
+#formColleg{
+    width: 91% !important;
+    height: 50px !important;
+}
+#formFiled  span select{
+    width: 600px !important;
+    height: 50px;
+}
+#btn1{
+    width: 100px !important;
+    height: 60px !important;
+    border-radius: 18px;
+}
+#mainContainer{
+    background-color: aqua;
+}
