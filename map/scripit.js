@@ -1,101 +1,350 @@
+let audio = new Audio("ad");
+let btn1 = new Audio("");
+let clearSound = new Audio("");
+let success = new Audio("");
+let vol = true;
+const states = [
+  { state: "Andhra Pradesh", capital: "Amaravati", top: "68%", left: "37%" },
+  { state: "Arunachal Pradesh", capital: "Itanagar", top: "26%", left: "85%" },
+  { state: "Assam", capital: "Dispur", top: "32%", left: "80%" },
+  { state: "Bihar", capital: "Patna", top: "35%", left: "59%" },
+  { state: "Chandigarh", capital: "Chandigarh", top: "19%", left: "30%" },
+  { state: "Chhattisgarh", capital: "Raipur", top: "47%", left: "47%" },
+  { state: "Delhi", capital: "New Delhi", top: "26%", left: "32%" },
+  { state: "Goa", capital: "Panaji", top: "65.5%", left: "20%" },
+  { state: "Gujarat", capital: "Gandhinagar", top: "42%", left: "15%" },
+  { state: "Haryana", capital: "Chandigarh", top: "24%", left: "30%" },
+  { state: "Himachal Pradesh", capital: "Shimla", top: "16%", left: "34%" },
+  {
+    state: "Jammu & Kashmir",
+    capital: "Srinagar/Jammu",
+    top: "10%",
+    left: "27%",
+  },
+  { state: "Jharkhand", capital: "Ranchi", top: "41%", left: "57%" },
+  { state: "Karnataka", capital: "Bengaluru", top: "68%", left: "26%" },
+  { state: "Kerala", capital: "Thiruvananthapuram", top: "83%", left: "28%" },
+  { state: "Ladakh", capital: "Leh", top: "7%", left: "32%" },
+  { state: "Madhya Pradesh", capital: "Bhopal", top: "42%", left: "35%" },
+  { state: "Maharashtra", capital: "Mumbai", top: "53%", left: "25%" },
+  { state: "Manipur", capital: "Imphal", top: "37%", left: "84%" },
+  { state: "Meghalaya", capital: "Shillong", top: "34.5%", left: "75%" },
+  { state: "Mizoram", capital: "Aizawl", top: "42%", left: "81%" },
+  { state: "Nagaland", capital: "Kohima", top: "32%", left: "86%" },
+  { state: "Odisha", capital: "Bhubaneswar", top: "50%", left: "50%" },
+  { state: "Punjab", capital: "Chandigarh", top: "18%", left: "27%" },
+  { state: "Rajasthan", capital: "Jaipur", top: "30%", left: "20%" },
+  { state: "Sikkim", capital: "Gangtok", top: "30%", left: "66.8%" },
+  { state: "Tamil Nadu", capital: "Chennai", top: "80%", left: "35%" },
+  { state: "Telangana", capital: "Hyderabad", top: "58%", left: "37%" },
+  { state: "Tripura", capital: "Agartala", top: "40%", left: "77%" },
+  { state: "Uttar Pradesh", capital: "Lucknow", top: "32%", left: "43%" },
+  { state: "Uttarakhand", capital: "Dehradun", top: "21%", left: "39%" },
+  { state: "West Bengal", capital: "Kolkata", top: "41%", left: "65%" },
+];
 function search() {
-  const state = document.getElementById("State").value.trim().toLowerCase();
-    
-  if(!state){
-    alert("State Empty")
-    return
+  const text = document.getElementById("state").value;
+  const img = document.getElementById("div");
+  const div = document.createElement("div");
+  const w = window.innerWidth;
+  div.innerText = "⛳️";
+  div.style.position = "absolute";
+  if (w < 400) {
+    div.style.fontSize = "small";
   }
-  
-  const flag = document.createElement("i");
-  flag.classList.add("bi", "bi-flag-fill", "text-danger", "fs-3");
-  flag.style.position = "absolute";
+  div.style.cursor = "pointer";
+  if (text === "Andhra Pradesh") {
+    div.style.top = "68%";
+    div.style.left = "37%";
+    img.appendChild(div);
+  }
+  if (text === "Arunachal Pradesh") {
+    div.style.top = "26%";
+    div.style.left = "85%";
+    img.appendChild(div);
+  }
+  if (text === "Assam") {
+    div.style.top = "32%";
+    div.style.left = "80%";
+    img.appendChild(div);
+  }
+  if (text === "Bihar") {
+    div.style.top = "35%";
+    div.style.left = "59%";
+    img.appendChild(div);
+  }
+  if (text === "Chandigarh") {
+    div.style.top = "19%";
+    div.style.left = "30%";
+    img.appendChild(div);
+  }
+  if (text === "Chhattisgarh") {
+    div.style.top = "47%";
+    div.style.left = "47%";
+    img.appendChild(div);
+  }
+  if (text === "Delhi") {
+    div.style.top = "26%";
+    div.style.left = "32%";
+    img.appendChild(div);
+  }
+  if (text === "Goa") {
+    div.style.top = "65.5%";
+    div.style.left = "20%";
+    img.appendChild(div);
+  }
+  if (text === "Gujarat") {
+    div.style.top = "42%";
+    div.style.left = "15%";
+    img.appendChild(div);
+  }
+  if (text === "Haryana") {
+    div.style.top = "24%";
+    div.style.left = "30%";
+    img.appendChild(div);
+  }
+  if (text === "Himachal Pradesh") {
+    div.style.top = "16%";
+    div.style.left = "34%";
+    img.appendChild(div);
+  }
+  if (text === "Jammu & Kashmir") {
+    div.style.top = "10%";
+    div.style.left = "27%";
+    img.appendChild(div);
+  }
+  if (text === "Jharkhand") {
+    div.style.top = "41%";
+    div.style.left = "57%";
+    img.appendChild(div);
+  }
+  if (text === "Karnataka") {
+    div.style.top = "68%";
+    div.style.left = "26%";
+    img.appendChild(div);
+  }
+  if (text === "Kerala") {
+    div.style.top = "83%";
+    div.style.left = "28%";
+    img.appendChild(div);
+  }
+  if (text === "Ladakh") {
+    div.style.top = "7%";
+    div.style.left = "32%";
+    img.appendChild(div);
+  }
+  if (text === "Madhya Pradesh") {
+    div.style.top = "42%";
+    div.style.left = "35%";
+    img.appendChild(div);
+  }
+  if (text === "Maharashtra") {
+    div.style.top = "53%";
+    div.style.left = "25%";
+    img.appendChild(div);
+  }
+  if (text === "Manipur") {
+    div.style.top = "37%";
+    div.style.left = "84%";
+    img.appendChild(div);
+  }
+  if (text === "Meghalaya") {
+    div.style.top = "34.5%";
+    div.style.left = "75%";
+    img.appendChild(div);
+  }
+  if (text === "Mizoram") {
+    div.style.top = "42%";
+    div.style.left = "81%";
+    img.appendChild(div);
+  }
+  if (text === "Nagaland") {
+    div.style.top = "32%";
+    div.style.left = "86%";
+    img.appendChild(div);
+  }
+  if (text === "Odisha") {
+    div.style.top = "50%";
+    div.style.left = "50%";
+    img.appendChild(div);
+  }
+  if (text === "Punjab") {
+    div.style.top = "18%";
+    div.style.left = "27%";
+    img.appendChild(div);
+  }
+  if (text === "Rajasthan") {
+    div.style.top = "30%";
+    div.style.left = "20%";
+    img.appendChild(div);
+  }
+  if (text === "Sikkim") {
+    div.style.top = "30%";
+    div.style.left = "66.8%";
+    img.appendChild(div);
+  }
+  if (text === "Tamil Nadu") {
+    div.style.top = "80%";
+    div.style.left = "35%";
+    img.appendChild(div);
+  }
+  if (text === "Telangana") {
+    div.style.top = "58%";
+    div.style.left = "37%";
+    img.appendChild(div);
+  }
+  if (text === "Tripura") {
+    div.style.top = "40%";
+    div.style.left = "77%";
+    img.appendChild(div);
+  }
+  if (text === "Uttar Pradesh") {
+    div.style.top = "32%";
+    div.style.left = "43%";
+    img.appendChild(div);
+  }
+  if (text === "Uttarakhand") {
+    div.style.top = "21%";
+    div.style.left = "39%";
+    img.appendChild(div);
+  }
+  if (text === "West Bengal") {
+    div.style.top = "41%";
+    div.style.left = "65%";
+    img.appendChild(div);
+  }
+  if (vol) audio.play();
+  const temp = document.createElement("p");
+  temp.innerText = text;
+  temp.style.position = "absolute";
+  temp.style.zIndex = "1";
+  temp.style.bottom = "-35px";
+  temp.style.left = "0%";
+  temp.style.cursor = "pointer";
+  temp.style.width = "140px";
+  temp.style.fontWeight = "bold";
+  temp.style.zIndex = "99";
 
-  if (state === "delhi") {
-    flag.style.top = "345px";
-    flag.style.left = "360px";
-    flag.title = "State: Delhi \nCapital: New Delhi";
-  }
-  if(state === "madhya pradesh" || state === "mp"){
-    flag.style.top = "545px";
-    flag.style.left = "360px";
-    flag.title = "State: Madhya Pradesh \nCapital: Bhopal";
-  }
-  if(state === "ladakh"){
-    flag.style.top = "100px";
-    flag.style.left = "350px";
-    flag.title = "State: Ladakh \nCapital: Leh";
-  }
-  if(state === "jammu & kashmir"){
-    flag.style.top = "150px";
-    flag.style.left = "300px";
-    flag.title = "State: Jammu & Kashmir \nCapital: Srinagar";
-  }
-  if(state === "himachal pradesh"){
-    flag.style.top = "230px";
-    flag.style.left = "370px";
-    flag.title = "State: Himachal Pradesh \nCapital: Shimla";
-  }
-  if(state === "punjab"){
-    flag.style.top = "250px";
-    flag.style.left = "300px";
-    flag.title = "State: Punjab \nCapital: Chandigarh";
-  }
-  if(state === "uttarakhand"){
-    flag.style.top = "290px";
-    flag.style.left = "420px";
-    flag.title = "State: Uttarakhand \nCapital: Dehradun";
-  }
-  if(state === "haryana"){
-    flag.style.top = "330px";
-    flag.style.left = "330px";
-    flag.title = "State: Haryana \nCapital: Chandigarh";
-  }
-  if(state === "up" || state === "uttar pradesh"){
-    flag.style.top = "400px";   
-    flag.style.left = "450px";
-    flag.title = "State: Uttar Pradesh \nCapital: Lucknow";
-  }
-  if(state === "rajasthan"){
-    flag.style.top = "400px";   
-    flag.style.left = "250px";
-    flag.title = "State: Rajasthan \nCapital: Jaipur";
-  }
-  if(state === "bihar"){
-    flag.style.top = "480px";   
-    flag.style.left = "650px";
-    flag.title = "State: Bihar \nCapital: Patna";
-  }
-  if(state === "jharkhand"){
-    flag.style.top = "550px";   
-    flag.style.left = "620px";
-    flag.title = "State: Jharkhand \nCapital: Ranchi";
-  }
-  if(state === "west bengal"){
-    flag.style.top = "560px";   
-    flag.style.left = "700px";
-    flag.title = "State: West Bengal \nCapital: Kolkata";
-  }
-  if(state === "west bengal"){
-    flag.style.top = "560px";   
-    flag.style.left = "700px";
-    flag.title = "State: West Bengal \nCapital: Kolkata";
-  }
-  if(state === "chhattisgarh"){
-    flag.style.top = "640px";   
-    flag.style.left = "500px";
-    flag.title = "State: Chhattisgarh \nCapital: Raipur";
-  }
-  if(state === "maharashtra"){
-    flag.style.top = "700px";   
-    flag.style.left = "350px";
-    flag.title = "State: Maharashtra \nCapital: Mumbai";
+  const temp2 = document.createElement("p");
+
+  states.map((item) => {
+    if (item.state === text) {
+      temp2.innerText = `Capital: ${item.capital}`;
+      temp2.style.position = "absolute";
+      temp2.style.zIndex = "1";
+      temp2.style.bottom = "-55px";
+      temp2.style.left = "0%";
+      temp2.style.cursor = "pointer";
+      temp2.style.width = "210px";
+      temp2.style.zIndex = "99";
+    }
+  });
+
+  if (
+    text === "Arunachal Pradesh" ||
+    text === "Nagaland" ||
+    text === "Manipur" ||
+    text === "Mizoram"
+  ) {
+    temp.style.left = "-80px";
+    temp.style.width = "150px";
+    temp2.style.left = "-80px";
   }
 
+  div.addEventListener("mouseenter", () => {
+    div.appendChild(temp);
+    div.appendChild(temp2);
+  });
+  div.addEventListener("mouseleave", () => {
+    div.removeChild(temp);
+    div.removeChild(temp2);
+  });
+}
 
+function volume() {
+  const btn = document.getElementById("volume");
+  const btn2 = document.getElementById("volume2");
+  vol = !vol;
+  if (vol) {
+    btn.innerHTML = `<i class="bi bi-volume-up"></i>`;
+    btn2.innerHTML = `<i class="bi bi-volume-up"></i>`;
+  } else {
+    btn.innerHTML = `<i class="bi bi-volume-mute"></i>`;
+    btn2.innerHTML = `<i class="bi bi-volume-mute"></i>`;
+  }
+  btn1.play();
+}
 
+function add() {
+  const text = document.getElementById("state").value;
+  const img = document.getElementById("div");
+  states.map((item) => {
+    const div = document.createElement("div");
+    const w = window.innerWidth;
+    div.innerText = "⛳️";
+    div.style.position = "absolute";
+    if (w < 400) {
+      div.style.fontSize = "small";
+    }
+    div.style.zIndex = "9999";
+    div.style.cursor = "pointer";
+    div.style.top = item.top;
+    div.style.left = item.left;
+    img.appendChild(div);
+    const temp = document.createElement("p");
+    temp.innerText = item.state;
+    temp.style.position = "absolute";
+    temp.style.zIndex = "1";
+    temp.style.bottom = "-35px";
+    temp.style.left = "0%";
+    temp.style.cursor = "pointer";
+    temp.style.width = "145px";
+    temp.style.fontWeight = "bold";
+    temp.style.zIndex = "999";
 
-  
-  document.getElementById("Map").appendChild(flag);
-  document.getElementById("State").value=""
+    const temp2 = document.createElement("p");
+    temp2.innerText = `Capital: ${item.capital}`;
+    temp2.style.position = "absolute";
+    temp2.style.zIndex = "1";
+    temp2.style.bottom = "-55px";
+    temp2.style.left = "0%";
+    temp2.style.cursor = "pointer";
+    temp2.style.width = "210px";
+    temp2.style.zIndex = "999";
 
+    if (
+      item.state === "Arunachal Pradesh" ||
+      item.state === "Nagaland" ||
+      item.state === "Manipur" ||
+      item.state === "Mizoram"
+    ) {
+      temp.style.left = "-80px";
+      temp.style.width = "150px";
+      temp2.style.left = "-80px";
+    }
+    div.addEventListener("mouseenter", () => {
+      div.appendChild(temp);
+      div.appendChild(temp2);
+    });
+    div.addEventListener("mouseleave", () => {
+      div.removeChild(temp);
+      div.removeChild(temp2);
+    });
+    if (vol) success.play();
+  });
+}
+
+function clearAll() {
+  const parent = document.getElementById("div");
+  if (parent.children.length === 1) return;
+  while (parent.children.length > 1) {
+    parent.removeChild(parent.lastChild);
+  }
+
+  if (vol) {
+    clearSound.play();
+    setTimeout(() => {
+      clearSound.pause();
+    }, 500);
+  }
 }
