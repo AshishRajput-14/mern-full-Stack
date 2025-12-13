@@ -12,6 +12,6 @@ function calculate() {
   const year = date2[0] - date1[0];
   const month = date2[1] - date1[1];
   const day = date2[2] - date1[2];
-
+  
   age.innerText = `Your age is:\n${year} years ${month} months ${day}days`;
 }
