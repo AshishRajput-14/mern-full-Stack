@@ -1,3 +1,4 @@
+
 async function getProducts() {
   try {
     const res = await fetch("https://fakestoreapi.com/products");
@@ -20,15 +21,15 @@ async function getProducts() {
     <div class="h-50 p-2">
       <div class="fw-bold fs-4">${
         element.title.length > 50
-          ? element.title.slice(0, 45) + "..."
-          : element.title
+          ? element.title.slice(0, 30) + "..."
+          : element.title 
       }</div>
       <div class="fw-semibold">${element.rating.rate}/5 (${
         element.rating.count
       })</div>
       <div class="fw-semibold fs-5">₹ ${element.price * 100}</div>
       <div class="mb-2">
-        ${element.description.slice(0, 80)}...
+        ${element.description.slice(0, 70)}...
       </div>
       <div class="d-flex justify-content-center gap-3">
         <button class="btn btn-outline-primary">Add to Cart</button>
