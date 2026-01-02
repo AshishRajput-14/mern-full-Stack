@@ -3,7 +3,6 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 import Header from "./components/Header";
-import Home from "./pages/Home";
 import Registration from "./pages/Registration";
 import { Toaster } from "react-hot-toast";
 
@@ -14,8 +13,7 @@ function App() {
         <Toaster />
         <Header />
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/register" element={<Register />} />
+          <Route path="/" element={<Registration/>} />
         </Routes>
       </BrowserRouter>
     </>
