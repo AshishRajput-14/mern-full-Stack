@@ -1,4 +1,3 @@
-
 import React, { useState } from "react";
 import CountryData from "../assets/CountryData.json";
 import toast from "react-hot-toast";
@@ -17,7 +16,7 @@ const Corrency = () => {
     }
     try {
       const res = await axios.get(
-        `https://cdn.jsdelivr.net/npm/@fawazahmed0/corrency-api@latest/v1/correncies/${from
+        `https://cdn.jsdelivr.net/npm/@fawazahmed0/currency-api@latest/v1/currencies/${from
           .split(" ")[0]
           .toLowerCase()}.json`
       );
@@ -32,7 +31,7 @@ const Corrency = () => {
     <>
       <div className="bg-amber-50 h-screen p-5">
         <div className="w-3xl bg-white rounded shadow border p-3 mx-auto space-y-5">
-          <div className="grid grid-cols-2 gap-5">
+          <div className="grid grid-cols-2 gap-10">
             <div className="flex gap-3 border rounded px-3">
               {from && (
                 <img
@@ -49,7 +48,7 @@ const Corrency = () => {
                 <option value="">-Select Country-</option>
                 {CountryData.map((country, idx) => (
                   <option
-                    value={country.CorrencyCode + " " + country.CountryCode}
+                    value={country.CurrencyCode + " " + country.CountryCode}
                     key={idx}
                   >
                     {country.CountryName}
@@ -74,7 +73,7 @@ const Corrency = () => {
                 <option value="">-Select Country-</option>
                 {CountryData.map((country, idx) => (
                   <option
-                    value={country.CorrencyCode + " " + country.CountryCode}
+                    value={country.CurrencyCode + " " + country.CountryCode}
                     key={idx}
                   >
                     {country.CountryName}
