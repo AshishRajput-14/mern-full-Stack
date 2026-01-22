@@ -1,8 +1,10 @@
 import User from "../models/userModel.js";
 import bcrypt from "bcrypt";
+import { genToken } from "../utils/authToken.js";
 
 export const UserRegister = async (req, res, next) => {
   try {
+    console.log(req.body);
     //accept data from Frontend
     const { fullName, email, mobileNumber, password } = req.body;
 
@@ -13,6 +15,8 @@ export const UserRegister = async (req, res, next) => {
       return next(error);
     }
 
+    console.log({ fullName, email, mobileNumber, password });
+
     //Check for duplaicate user before registration
     const existingUser = await User.findOne({ email });
     if (existingUser) {
@@ -21,9 +25,13 @@ export const UserRegister = async (req, res, next) => {
       return next(error);
     }
 
+    console.log("Sending Data to DB");
+
     //encrypt the password
     const salt = await bcrypt.genSalt(10);
     const hashPassword = await bcrypt.hash(password, salt);
+
+    console.log("Password Hashing Done. hashPassword = ", hashPassword);
 
     //save data to database
     const newUser = await User.create({
@@ -58,7 +66,7 @@ export const UserLogin = async (req, res, next) => {
     const existingUser = await User.findOne({ email });
     if (!existingUser) {
       const error = new Error("Email not registered");
-      error.statusCode = 402;
+      error.statusCode = 401;
       return next(error);
     }
 
@@ -66,9 +74,12 @@ export const UserLogin = async (req, res, next) => {
     const isVerified = await bcrypt.compare(password, existingUser.password);
     if (!isVerified) {
       const error = new Error("Password didn't match");
-      error.statusCode = 402;
+      error.statusCode = 401;
       return next(error);
     }
+
+    //Token Generation will be done here
+    genToken(existingUser, res);
 
     //send message to Frontend
     res.status(200).json({ message: "Login Successfull", data: existingUser });
